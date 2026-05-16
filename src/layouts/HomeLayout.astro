@@ -1,0 +1,24 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import NavList from '@/components/NavList.astro';
+import ProfileCard from '@/components/ProfileCard.astro';
+import { getSiteMeta, site } from '@/data/site';
+import { getLocale } from '@/lib/locale';
+
+const locale = getLocale(Astro.currentLocale);
+const meta = getSiteMeta(locale);
+---
+
+<BaseLayout bodyClass="home-bg min-h-screen">
+	<main class="mx-auto flex min-h-screen w-full max-w-lg flex-col justify-center px-4 py-16 sm:py-20">
+		<div class="space-y-8">
+			<ProfileCard />
+			<NavList />
+
+			<footer class="space-y-1 pt-4 text-center text-xs text-ink-muted">
+				<p>{meta.copyright}</p>
+				{site.icp ? <p>{site.icp}</p> : null}
+			</footer>
+		</div>
+	</main>
+</BaseLayout>

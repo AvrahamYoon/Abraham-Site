@@ -1,0 +1,48 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { navItems, type NavId } from '@/data/nav';
+import { getLocale } from '@/lib/locale';
+
+interface Props {
+	activeId: NavId;
+}
+
+const locale = getLocale(Astro.currentLocale);
+const { activeId } = Astro.props;
+
+const labels = {
+	'zh-tw': { nav: '導航', home: '返回首頁' },
+	en: { nav: 'Menu', home: 'Back to home' },
+};
+const copy = labels[locale];
+---
+
+<nav class="panel p-4" aria-label={copy.nav}>
+	<p class="mb-3 px-2 text-xs font-semibold tracking-wider text-ink-muted uppercase">
+		{copy.nav}
+	</p>
+	<ul class="space-y-0.5">
+		{
+			navItems.map((item) => {
+				const isActive = item.id === activeId;
+				return (
+					<li>
+						<a
+							href={getRelativeLocaleUrl(locale, item.path)}
+							class:list={['sidebar-link', isActive && 'sidebar-link-active']}
+							aria-current={isActive ? 'page' : undefined}
+						>
+							{item.label[locale]}
+						</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+	<a
+		href={getRelativeLocaleUrl(locale, '/')}
+		class="mt-4 block rounded-xl border border-line bg-surface px-4 py-2.5 text-center text-sm font-medium text-ink-muted transition hover:border-indigo-200 hover:text-accent"
+	>
+		{copy.home}
+	</a>
+</nav>

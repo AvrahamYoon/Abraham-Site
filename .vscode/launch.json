@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "name": "Astro: dev server",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "Astro: preview build",
+      "request": "launch",
+      "command": "npm run preview",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { navItems } from '@/data/nav';
+import { getLocale } from '@/lib/locale';
+
+const locale = getLocale(Astro.currentLocale);
+---
+
+<nav class="flex flex-col gap-2" aria-label="Main navigation">
+	{
+		navItems.map((item) => (
+			<a href={getRelativeLocaleUrl(locale, item.path)} class="nav-row group">
+				<span>{item.label[locale]}</span>
+				<span
+					class="text-ink-muted transition group-hover:translate-x-0.5 group-hover:text-accent"
+					aria-hidden="true"
+				>
+					→
+				</span>
+			</a>
+		))
+	}
+</nav>

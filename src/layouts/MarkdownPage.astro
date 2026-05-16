@@ -1,0 +1,21 @@
+---
+import PageLayout from './PageLayout.astro';
+import type { NavId } from '@/data/nav';
+
+interface Props {
+	frontmatter: {
+		title: string;
+		nav: NavId;
+		description?: string;
+	};
+}
+
+const { frontmatter } = Astro.props;
+const { title, nav, description } = frontmatter;
+---
+
+<PageLayout title={title} activeNav={nav} description={description}>
+	<article class="prose-page">
+		<slot />
+	</article>
+</PageLayout>

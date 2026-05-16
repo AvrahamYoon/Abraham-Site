@@ -1,0 +1,34 @@
+---
+import { getLocalizedUrl, locales, getLocale, type Locale } from '@/lib/locale';
+
+const current = getLocale(Astro.currentLocale);
+
+const localeLabels: Record<Locale, string> = {
+	'zh-tw': '繁',
+	en: 'EN',
+};
+---
+
+<div
+	class="top-nav-shell text-xs font-semibold shadow-lg"
+	role="group"
+	aria-label="Language"
+>
+	{
+		locales.map((locale) => {
+			const isActive = locale === current;
+			const href = getLocalizedUrl(locale, Astro.url.pathname);
+			return isActive ? (
+				<span class="top-nav-link-active rounded-xl px-3 py-2">{localeLabels[locale]}</span>
+			) : (
+				<a
+					href={href}
+					class="top-nav-link rounded-xl px-3 py-2 hover:bg-slate-100"
+					hreflang={locale}
+				>
+					{localeLabels[locale]}
+				</a>
+			);
+		})
+	}
+</div>

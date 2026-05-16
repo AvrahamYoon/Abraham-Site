@@ -1,0 +1,79 @@
+---
+import { getSiteName, site } from '@/data/site';
+import { getLocale } from '@/lib/locale';
+import SocialLinks from './SocialLinks.astro';
+
+interface Props {
+	variant?: 'home' | 'sidebar';
+}
+
+const locale = getLocale(Astro.currentLocale);
+const name = getSiteName(locale);
+const { variant = 'home' } = Astro.props;
+const isSidebar = variant === 'sidebar';
+---
+
+<div
+	class:list={[
+		'panel relative overflow-hidden',
+		isSidebar ? 'p-4' : 'p-6 sm:p-8',
+	]}
+>
+	{
+		!isSidebar && (
+			<div
+				class="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-indigo-400/20 blur-3xl"
+				aria-hidden="true"
+			/>
+		)
+	}
+
+	<div
+		class:list={[
+			'relative flex gap-4',
+			isSidebar ? 'flex-col items-center text-center' : 'flex-col items-center sm:flex-row sm:text-left',
+		]}
+	>
+		<div class="relative shrink-0">
+			{
+				!isSidebar && (
+					<div
+						class="absolute -inset-1 rounded-2xl bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-400 opacity-80 blur-sm"
+						aria-hidden="true"
+					/>
+				)
+			}
+			<img
+				src={site.avatar}
+				alt={name}
+				width={isSidebar ? 64 : 80}
+				height={isSidebar ? 64 : 80}
+				class:list={[
+					'relative rounded-2xl object-cover ring-2 ring-white',
+					isSidebar ? 'h-16 w-16' : 'h-20 w-20',
+				]}
+				loading="eager"
+			/>
+		</div>
+
+		<div class="min-w-0 flex-1">
+			<p
+				class:list={[
+					'font-semibold tracking-tight text-ink',
+					isSidebar ? 'text-lg' : 'text-2xl sm:text-3xl',
+				]}
+			>
+				{name}
+			</p>
+			<a
+				href={`mailto:${site.email}`}
+				class="mt-1 inline-block text-xs text-ink-muted transition hover:text-accent sm:text-sm"
+			>
+				{site.email}
+			</a>
+			<div class:list={['mt-3', isSidebar ? 'flex justify-center' : 'flex justify-center sm:justify-start']}>
+				<SocialLinks />
+			</div>
+		</div>
+	</div>
+</div>

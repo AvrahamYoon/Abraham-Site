@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import { Font } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
+import FloatingActions from '@/components/FloatingActions.astro';
+import { getSiteMeta } from '@/data/site';
+import { getLocalizedUrl, getLocale, locales, type Locale } from '@/lib/locale';
+
+interface Props {
+	title?: string;
+	description?: string;
+	bodyClass?: string;
+}
+
+const locale = getLocale(Astro.currentLocale);
+const meta = getSiteMeta(locale);
+const { title, description, bodyClass = '' } = Astro.props;
+const pageTitle = title ? `${title} · ${meta.title}` : meta.title;
+const pageDescription = description ?? meta.description;
+
+function localizedPath(locale: Locale) {
+	return getLocalizedUrl(locale, Astro.url.pathname);
+}
+
+const hreflangMap: Record<Locale, string> = {
+	'zh-tw': 'zh-Hant',
+	en: 'en',
+};
+
+const htmlLang = locale === 'en' ? 'en' : 'zh-Hant';
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<meta name="theme-color" content="#f8fafc" />
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+		{
+			locales.map((locale) => (
+				<link
+					rel="alternate"
+					hreflang={hreflangMap[locale]}
+					href={new URL(localizedPath(locale), Astro.site)}
+				/>
+			))
+		}
+		<link rel="alternate" hreflang="x-default" href={new URL(localizedPath('zh-tw'), Astro.site)} />
+		<title>{pageTitle}</title>
+		<Font cssVariable="--font-wenkai" preload />
+		<Font cssVariable="--font-sans-code" />
+		<ClientRouter />
+	</head>
+	<body class={bodyClass}>
+		<slot />
+		<FloatingActions />
+	</body>
+</html>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ProfileCard from '@/components/ProfileCard.astro';
+import SidebarNav from '@/components/SidebarNav.astro';
+import type { NavId } from '@/data/nav';
+import { getSiteMeta } from '@/data/site';
+import { getLocale } from '@/lib/locale';
+
+interface Props {
+	title: string;
+	activeNav: NavId;
+	description?: string;
+}
+
+const locale = getLocale(Astro.currentLocale);
+const meta = getSiteMeta(locale);
+const { title, activeNav, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} bodyClass="page-bg min-h-screen">
+	<div class="mx-auto min-h-screen max-w-6xl px-4 py-8 lg:py-10">
+		<div class="grid gap-8 lg:grid-cols-[minmax(0,17rem)_1fr] lg:gap-10">
+			<aside class="space-y-4 lg:sticky lg:top-8 lg:self-start">
+				<ProfileCard variant="sidebar" />
+				<SidebarNav activeId={activeNav} />
+			</aside>
+
+			<div class="min-w-0 space-y-6">
+				<header>
+					<h1 class="page-title">{title}</h1>
+				</header>
+
+				<main class="panel p-6 sm:p-10">
+					<slot />
+				</main>
+			</div>
+		</div>
+
+		<footer class="mt-12 text-center text-xs text-ink-muted lg:col-span-2">
+			<p>{meta.copyright}</p>
+		</footer>
+	</div>
+</BaseLayout>
