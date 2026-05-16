@@ -1,0 +1,23 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"framework": "astro",
+	"buildCommand": "npm run build",
+	"outputDirectory": "dist",
+	"redirects": [
+		{
+			"source": "/",
+			"destination": "/zh-tw/",
+			"permanent": false
+		},
+		{
+			"source": "/zh-TW",
+			"destination": "/zh-tw",
+			"permanent": true
+		},
+		{
+			"source": "/zh-TW/:path*",
+			"destination": "/zh-tw/:path*",
+			"permanent": true
+		}
+	]
+}
