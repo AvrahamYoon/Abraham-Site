@@ -2,6 +2,7 @@
   "name": "abraham-site",
   "type": "module",
   "version": "0.0.1",
+  "license": "CC-BY-NC-SA-4.0",
   "engines": {
     "node": ">=22.12.0"
   },

@@ -83,12 +83,14 @@ public/                 # avatar, favicon, static assets
 
 ### Custom domain
 
-1. In the Vercel project, go to **Settings → Domains** and add your domain (e.g. `abraham.moe`).
+Production URL: **https://abraham.moe** (already set in `astro.config.mjs`).
+
+1. In the Vercel project, go to **Settings → Domains** and add `abraham.moe` (and `www.abraham.moe` if you use it).
 2. Add the DNS records Vercel shows at your registrar.
-3. Set `site` in `astro.config.mjs` to your live URL (include `https://`), then redeploy so sitemap and canonical links are correct.
+3. After DNS propagates, redeploy once so sitemap and canonical links pick up the live domain.
 
 ```js
-site: 'https://your-domain.example',
+site: 'https://abraham.moe',
 ```
 
 ## Acknowledgments
@@ -97,4 +99,10 @@ Layout and concept were inspired by [liyan.moe](https://github.com/liyanqwq/liya
 
 ## License
 
-Personal site source. No separate open-source license is declared unless you add one.
+This project is licensed under **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** (Attribution · NonCommercial · ShareAlike).
+
+- You may share and adapt the work with attribution.
+- **Non-commercial use only** — no commercial use without separate permission.
+- **ShareAlike** — if you modify and distribute, you must release under the same license (source available under equivalent terms).
+
+See [LICENSE](./LICENSE) for the full summary.
