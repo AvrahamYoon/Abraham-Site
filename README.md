@@ -81,16 +81,14 @@ public/                 # avatar, favicon, static assets
 - `/` → `/zh-tw/`
 - Legacy `/zh-TW/...` → `/zh-tw/...` (301)
 
-### Custom domain
+### Live URL
 
-Production URL: **https://abraham.moe** (already set in `astro.config.mjs`).
+Production URL: **https://abrahamyin.vercel.app** (set in `astro.config.mjs`).
 
-1. In the Vercel project, go to **Settings → Domains** and add `abraham.moe` (and `www.abraham.moe` if you use it).
-2. Add the DNS records Vercel shows at your registrar.
-3. After DNS propagates, redeploy once so sitemap and canonical links pick up the live domain.
+After each deploy, Vercel assigns this project subdomain. If you add a custom domain later, update `site` and redeploy.
 
 ```js
-site: 'https://abraham.moe',
+site: 'https://abrahamyin.vercel.app',
 ```
 
 ## Acknowledgments

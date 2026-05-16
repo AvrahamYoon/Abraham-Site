@@ -9,7 +9,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://abraham.moe',
+	site: 'https://abrahamyin.vercel.app',
 	vite: {
 		plugins: [tailwindcss()],
 		resolve: {
