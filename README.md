@@ -99,10 +99,10 @@ Layout and concept were inspired by [liyan.moe](https://github.com/liyanqwq/liya
 
 ## License
 
-This project is licensed under **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** (Attribution · NonCommercial · ShareAlike).
+This project is licensed under the **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)** (GPL-3.0).
 
-- You may share and adapt the work with attribution.
-- **Non-commercial use only** — no commercial use without separate permission.
-- **ShareAlike** — if you modify and distribute, you must release under the same license (source available under equivalent terms).
+- You may use, study, share, and modify this work under the GPL.
+- **Copyleft** — if you distribute a modified version, you must license it under the GPL and make the corresponding source available.
+- No warranty — see the license for details.
 
-See [LICENSE](./LICENSE) for the full summary.
+See [LICENSE](./LICENSE) for the full text.
