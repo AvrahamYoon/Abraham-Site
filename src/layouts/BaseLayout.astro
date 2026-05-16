@@ -55,8 +55,13 @@ const htmlLang = locale === 'en' ? 'en' : 'zh-Hant';
 		<Font cssVariable="--font-wenkai" preload />
 		<Font cssVariable="--font-sans-code" />
 		<ClientRouter />
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				window.scrollTo(0, 0);
+			});
+		</script>
 	</head>
-	<body class={bodyClass}>
+	<body class={`${bodyClass} overflow-x-hidden`}>
 		<slot />
 		<FloatingActions />
 	</body>

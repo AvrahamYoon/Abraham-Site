@@ -19,6 +19,7 @@
 @layer base {
 	html {
 		@apply antialiased scroll-smooth;
+		scrollbar-gutter: stable;
 	}
 
 	body {
@@ -85,6 +86,21 @@
 	}
 
 	.prose-page {
-		@apply prose prose-slate max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink prose-p:leading-relaxed prose-p:text-slate-600 prose-li:text-slate-600 prose-a:font-medium prose-a:text-accent prose-a:no-underline hover:prose-a:text-accent-hover hover:prose-a:underline prose-strong:text-ink prose-code:font-mono prose-code:text-accent prose-code:before:content-none prose-code:after:content-none;
+		@apply prose prose-slate max-w-none break-words prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink prose-h2:mt-8 prose-h2:mb-3 prose-h2:first:mt-0 prose-p:leading-relaxed prose-p:text-slate-600 prose-li:text-slate-600 prose-a:font-medium prose-a:text-accent prose-a:no-underline hover:prose-a:text-accent-hover hover:prose-a:underline prose-strong:text-ink prose-code:font-mono prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-accent/30 prose-blockquote:bg-accent-soft/40 prose-blockquote:py-1 prose-blockquote:not-italic;
+	}
+}
+
+@layer utilities {
+	.page-fade {
+		animation: page-fade-in 0.15s ease-out;
+	}
+}
+
+@keyframes page-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
