@@ -91,6 +91,10 @@ public/                 # avatar, favicon, static assets
 site: 'https://your-domain.example',
 ```
 
+## Acknowledgments
+
+Layout and concept were inspired by [liyan.moe](https://github.com/liyanqwq/liyan.moe) ([@liyanqwq](https://github.com/liyanqwq)). This repo is a separate implementation with its own content, styling, and features.
+
 ## License
 
 Personal site source. No separate open-source license is declared unless you add one.
