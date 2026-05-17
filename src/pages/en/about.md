@@ -25,6 +25,9 @@ It comes from the **first email sent from mainland China to the international in
 - Board games
 - Amateur radio (HAM)
 - Side projects & making things
+- Freemasonry
+- Mysticism
+- Esoteric groups
 
 ## Support
 
