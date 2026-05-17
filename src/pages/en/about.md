@@ -24,7 +24,6 @@ It comes from the **first email sent from mainland China to the international in
 - Computer science & software development
 - Board games
 - Amateur radio (HAM)
-- Side projects & making things
 - Freemasonry
 - Mysticism
 - Esoteric groups
