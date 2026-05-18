@@ -31,7 +31,9 @@ const isSidebar = variant === 'sidebar';
 	<div
 		class:list={[
 			'relative flex gap-4',
-			isSidebar ? 'flex-col items-center text-center' : 'flex-col items-center sm:flex-row sm:text-left',
+			isSidebar
+				? 'flex-col items-center text-center'
+				: 'flex-col items-center text-center sm:flex-row sm:items-center sm:text-left',
 		]}
 	>
 		<div class="relative shrink-0">
@@ -56,7 +58,12 @@ const isSidebar = variant === 'sidebar';
 			/>
 		</div>
 
-		<div class="min-w-0 flex-1">
+		<div
+			class:list={[
+				'min-w-0',
+				isSidebar ? 'w-full flex-1' : 'w-full text-center sm:flex-1 sm:text-left',
+			]}
+		>
 			<p
 				class:list={[
 					'font-semibold tracking-tight text-ink',
