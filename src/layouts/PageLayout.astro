@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import MobileNav from '@/components/MobileNav.astro';
 import ProfileCard from '@/components/ProfileCard.astro';
 import SidebarNav from '@/components/SidebarNav.astro';
 import type { NavId } from '@/data/nav';
@@ -18,22 +19,25 @@ const { title, activeNav, description } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} bodyClass="page-bg min-h-screen">
-	<div class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 lg:py-10">
-		<div class="grid flex-1 gap-8 lg:grid-cols-[minmax(0,17rem)_1fr] lg:items-start lg:gap-10">
-			<aside class="space-y-4 lg:sticky lg:top-8">
+	<div
+		class="page-shell mx-auto flex min-h-screen max-w-6xl flex-col px-4 pt-[calc(3.25rem+env(safe-area-inset-top,0px))] pb-[max(2rem,env(safe-area-inset-bottom,0px))] lg:px-6 lg:py-10 lg:pt-10"
+	>
+		<div class="grid flex-1 gap-6 lg:grid-cols-[minmax(0,17rem)_1fr] lg:items-start lg:gap-10">
+			<aside class="hidden space-y-4 lg:sticky lg:top-8 lg:block">
 				<div transition:persist="profile-card">
 					<ProfileCard variant="sidebar" />
 				</div>
 				<SidebarNav activeId={activeNav} />
 			</aside>
 
-			<div class="flex min-w-0 flex-col gap-6">
-				<header class="shrink-0" transition:animate="none">
+			<div class="flex min-w-0 flex-col gap-4 sm:gap-6">
+				<header class="shrink-0 space-y-3" transition:animate="none">
 					<h1 class="page-title">{title}</h1>
+					<MobileNav activeId={activeNav} />
 				</header>
 
 				<main
-					class="panel min-h-[28rem] flex-1 p-6 sm:min-h-[32rem] sm:p-10"
+					class="panel min-h-0 flex-1 p-5 sm:p-8 lg:min-h-[32rem] lg:p-10"
 					transition:animate="none"
 				>
 					<slot />

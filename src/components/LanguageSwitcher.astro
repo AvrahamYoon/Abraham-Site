@@ -19,11 +19,11 @@ const localeLabels: Record<Locale, string> = {
 			const isActive = locale === current;
 			const href = getLocalizedUrl(locale, Astro.url.pathname);
 			return isActive ? (
-				<span class="top-nav-link-active rounded-xl px-3 py-2">{localeLabels[locale]}</span>
+				<span class="top-nav-link-active tap-target rounded-xl px-3 py-2">{localeLabels[locale]}</span>
 			) : (
 				<a
 					href={href}
-					class="top-nav-link rounded-xl px-3 py-2 hover:bg-slate-100"
+					class="top-nav-link tap-target rounded-xl px-3 py-2 hover:bg-slate-100 active:scale-95"
 					hreflang={locale}
 				>
 					{localeLabels[locale]}

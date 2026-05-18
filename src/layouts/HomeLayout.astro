@@ -10,7 +10,9 @@ const meta = getSiteMeta(locale);
 ---
 
 <BaseLayout bodyClass="home-bg min-h-screen">
-	<main class="mx-auto flex min-h-screen w-full max-w-lg flex-col justify-center px-4 py-16 sm:py-20">
+	<main
+		class="mx-auto flex min-h-screen w-full max-w-lg flex-col justify-center px-4 pt-[calc(4rem+env(safe-area-inset-top,0px))] pb-[max(4rem,env(safe-area-inset-bottom,0px))] sm:py-20"
+	>
 		<div class="space-y-8">
 			<ProfileCard />
 			<NavList />

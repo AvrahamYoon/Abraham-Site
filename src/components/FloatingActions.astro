@@ -2,7 +2,9 @@
 import LanguageSwitcher from './LanguageSwitcher.astro';
 ---
 
-<div class="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-end p-4 sm:p-5">
+<div
+	class="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-end p-3 pt-[max(0.75rem,env(safe-area-inset-top,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))] sm:p-5"
+>
 	<div class="pointer-events-auto">
 		<LanguageSwitcher />
 	</div>

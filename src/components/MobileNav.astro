@@ -1,0 +1,37 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { navItems, type NavId } from '@/data/nav';
+import { getLocale } from '@/lib/locale';
+
+interface Props {
+	activeId: NavId;
+}
+
+const locale = getLocale(Astro.currentLocale);
+const { activeId } = Astro.props;
+
+const homeLabel = locale === 'zh-tw' ? '首頁' : 'Home';
+---
+
+<nav class="mobile-nav-scroll -mx-1 px-1 lg:hidden" aria-label={locale === 'zh-tw' ? '導航' : 'Menu'}>
+	<a
+		href={getRelativeLocaleUrl(locale, '/')}
+		class="mobile-nav-pill tap-target text-ink-muted"
+	>
+		{homeLabel}
+	</a>
+	{
+		navItems.map((item) => {
+			const isActive = item.id === activeId;
+			return (
+				<a
+					href={getRelativeLocaleUrl(locale, item.path)}
+					class:list={['mobile-nav-pill tap-target', isActive && 'mobile-nav-pill-active']}
+					aria-current={isActive ? 'page' : undefined}
+				>
+					{item.label[locale]}
+				</a>
+			);
+		})
+	}
+</nav>
