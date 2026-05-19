@@ -112,6 +112,47 @@
 	.mobile-nav-pill-active {
 		@apply border-accent/30 bg-accent text-white shadow-sm shadow-accent-glow;
 	}
+
+	.news-page-intro {
+		@apply mb-8 text-sm leading-relaxed text-slate-600;
+	}
+
+	.news-page-intro code {
+		@apply rounded-md bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-accent;
+	}
+
+	.news-timeline {
+		@apply relative m-0 list-none space-y-0 p-0;
+	}
+
+	.news-timeline-item {
+		@apply relative border-l-2 border-line/90 pb-10 pl-6 last:pb-0;
+	}
+
+	.news-timeline-item::before {
+		content: '';
+		@apply absolute top-1.5 -left-[0.4375rem] h-3.5 w-3.5 rounded-full border-2 border-accent bg-elevated shadow-sm;
+	}
+
+	.news-timeline-meta {
+		@apply mb-2 flex flex-wrap items-center gap-2;
+	}
+
+	.news-timeline-date {
+		@apply text-xs font-semibold tracking-wide text-ink-muted uppercase;
+	}
+
+	.news-timeline-tag {
+		@apply rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent;
+	}
+
+	.news-timeline-title {
+		@apply text-lg font-semibold tracking-tight text-ink sm:text-xl;
+	}
+
+	.news-timeline-note {
+		@apply mt-2 text-sm leading-relaxed text-slate-600;
+	}
 }
 
 @layer utilities {

@@ -1,0 +1,46 @@
+---
+import { getNewsEntriesSorted, newsCategoryLabels } from '@/data/news';
+import { getLocale, type Locale } from '@/lib/locale';
+
+const locale = getLocale(Astro.currentLocale);
+const entries = getNewsEntriesSorted();
+
+function formatNewsDate(date: string, loc: Locale): string {
+	const normalized = date.length === 7 ? `${date}-01` : date;
+	const parsed = new Date(`${normalized}T12:00:00`);
+	if (Number.isNaN(parsed.getTime())) return date;
+
+	const options: Intl.DateTimeFormatOptions =
+		date.length === 7
+			? { year: 'numeric', month: 'long' }
+			: { year: 'numeric', month: 'long', day: 'numeric' };
+
+	return parsed.toLocaleDateString(loc === 'zh-tw' ? 'zh-Hant' : 'en-US', options);
+}
+
+const emptyCopy: Record<Locale, string> = {
+	'zh-tw': '尚無動態，之後的里程碑會記在這裡。',
+	en: 'No updates yet — milestones will appear here.',
+};
+---
+
+{
+	entries.length === 0 ? (
+		<p class="text-sm leading-relaxed text-slate-600">{emptyCopy[locale]}</p>
+	) : (
+		<ol class="news-timeline" aria-label={locale === 'zh-tw' ? '動態時間線' : 'News timeline'}>
+			{entries.map((entry) => (
+				<li class="news-timeline-item">
+					<div class="news-timeline-meta">
+						<time class="news-timeline-date" datetime={entry.date}>
+							{formatNewsDate(entry.date, locale)}
+						</time>
+						<span class="news-timeline-tag">{newsCategoryLabels[entry.category][locale]}</span>
+					</div>
+					<h2 class="news-timeline-title">{entry.title[locale]}</h2>
+					{entry.note ? <p class="news-timeline-note">{entry.note[locale]}</p> : null}
+				</li>
+			))}
+		</ol>
+	)
+}

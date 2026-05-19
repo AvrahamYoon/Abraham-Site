@@ -1,0 +1,17 @@
+---
+import NewsTimeline from '@/components/NewsTimeline.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+---
+
+<PageLayout
+	title="動態"
+	activeNav="news"
+	description="幽靈的動態與里程碑時間線"
+>
+	<div class="news-page">
+		<p class="news-page-intro">
+			記錄一些值得留下的節點：學業、電台、教會、美生會、網站更新等。之後會陸續補上。
+		</p>
+		<NewsTimeline />
+	</div>
+</PageLayout>

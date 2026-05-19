@@ -1,6 +1,6 @@
 import type { Locale } from '../lib/locale';
 
-export type NavId = 'about' | 'works' | 'radio' | 'friends' | 'donate';
+export type NavId = 'about' | 'news' | 'works' | 'radio' | 'friends' | 'donate';
 
 /** 之後可加：{ id: 'blog', path: '/blog', label: { 'zh-tw': '博客', en: 'Blog' } } */
 export type NavItem = {
@@ -14,6 +14,11 @@ export const navItems: NavItem[] = [
 		id: 'about',
 		path: '/about',
 		label: { 'zh-tw': '關於', en: 'About' },
+	},
+	{
+		id: 'news',
+		path: '/news',
+		label: { 'zh-tw': '動態', en: 'News' },
 	},
 	{
 		id: 'works',

@@ -23,12 +23,12 @@ const metaByLocale: Record<
 > = {
 	'zh-tw': {
 		title: '幽靈',
-		description: '幽靈的個人站 — 關於、作品、友人與常用連結。',
+		description: '幽靈的個人站 — 關於、動態、作品、友人與常用連結。',
 		copyright: '© 2019 - {year} 幽靈.',
 	},
 	en: {
 		title: 'Abraham Yin',
-		description: "Abraham Yin's personal hub — about, works, friends, and links.",
+		description: "Abraham Yin's personal hub — about, news, works, friends, and links.",
 		copyright: '© 2019 - {year} Abraham Yin.',
 	},
 };
