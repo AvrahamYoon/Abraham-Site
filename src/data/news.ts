@@ -1,4 +1,5 @@
 import type { Locale } from '../lib/locale';
+import entriesJson from './news/entries.json';
 
 export type NewsCategoryId = 'site' | 'study' | 'radio' | 'church' | 'masonic' | 'other';
 
@@ -11,29 +12,33 @@ export const newsCategoryLabels: Record<NewsCategoryId, Record<Locale, string>> 
 	other: { 'zh-tw': '其他', en: 'Other' },
 };
 
+/** Display order for filter pills (left → right before 「全部」) */
+export const newsCategoryOrder: NewsCategoryId[] = [
+	'site',
+	'study',
+	'radio',
+	'church',
+	'masonic',
+	'other',
+];
+
 export type NewsEntry = {
 	id: string;
 	/** ISO date: YYYY-MM-DD or YYYY-MM */
 	date: string;
 	category: NewsCategoryId;
 	title: Record<Locale, string>;
-	note?: Record<Locale, string>;
+	note: Record<Locale, string>;
 };
 
-/** Newest first after sort in NewsTimeline */
-export const newsEntries: NewsEntry[] = [
-	{
-		id: 'site-launch',
-		date: '2026-05',
-		category: 'site',
-		title: { 'zh-tw': '個人站上線', en: 'Personal site launched' },
-		note: {
-			'zh-tw': '雙語個人站首次部署至 Vercel。',
-			en: 'Bilingual personal site first deployed to Vercel.',
-		},
-	},
-];
+/** Timeline content — edit `src/data/news/entries.json` */
+export const newsEntries = entriesJson as NewsEntry[];
 
 export function getNewsEntriesSorted(): NewsEntry[] {
 	return [...newsEntries].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getNewsCategoriesInUse(): NewsCategoryId[] {
+	const used = new Set(newsEntries.map((entry) => entry.category));
+	return newsCategoryOrder.filter((id) => used.has(id));
 }

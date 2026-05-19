@@ -1,0 +1,106 @@
+[
+	{
+		"id": "site-launch",
+		"date": "2026-05",
+		"category": "site",
+		"title": {
+			"zh-tw": "個人站上線",
+			"en": "Personal site launched"
+		},
+		"note": {
+			"zh-tw": "雙語個人站首次部署至 Vercel。",
+			"en": "Bilingual personal site first deployed to Vercel."
+		}
+	},
+	{
+		"id": "church-general-conference",
+		"date": "2025-04-05",
+		"category": "church",
+		"title": {
+			"zh-tw": "現場參加總會大會",
+			"en": "Attended general conference"
+		},
+		"note": {
+			"zh-tw": "於猶他州鹽湖城現場參加四月總會大會。",
+			"en": "Attended April general conference in Salt Lake City, Utah, in person."
+		}
+	},
+	{
+		"id": "ham-license-bg4lqp",
+		"date": "2025-03-19",
+		"category": "radio",
+		"title": {
+			"zh-tw": "取得無線電臺執照",
+			"en": "Amateur radio station license issued"
+		},
+		"note": {
+			"zh-tw": "大陸地區執照核發，呼號 BG4LQP。",
+			"en": "Mainland China station license issued. Callsign BG4LQP."
+		}
+	},
+	{
+		"id": "church-patriarchal-blessing",
+		"date": "2025-03-08",
+		"category": "church",
+		"title": {
+			"zh-tw": "領受教長祝福",
+			"en": "Received a patriarchal blessing"
+		},
+		"note": {
+			"zh-tw": "由按立的教長按手領受教長祝福。",
+			"en": "Received a patriarchal blessing from an ordained patriarch by the laying on of hands."
+		}
+	},
+	{
+		"id": "ham-operator-cert",
+		"date": "2025-03-11",
+		"category": "radio",
+		"title": {
+			"zh-tw": "取得無線電臺操作證",
+			"en": "Amateur radio operator certificate"
+		},
+		"note": {
+			"zh-tw": "大陸地區操作證核發。",
+			"en": "Mainland China operator certificate issued."
+		}
+	},
+	{
+		"id": "church-melchizedek-priesthood",
+		"date": "2025-02-22",
+		"category": "church",
+		"title": {
+			"zh-tw": "按立為長老",
+			"en": "Ordained an elder"
+		},
+		"note": {
+			"zh-tw": "按手按立為麥基洗德聖職的長老。",
+			"en": "Ordained an elder in the Melchizedek Priesthood by the laying on of hands."
+		}
+	},
+	{
+		"id": "church-aaronic-priesthood",
+		"date": "2025-01-11",
+		"category": "church",
+		"title": {
+			"zh-tw": "按立為祭司",
+			"en": "Ordained a priest"
+		},
+		"note": {
+			"zh-tw": "按手按立為亞倫聖職的祭司。",
+			"en": "Ordained a priest in the Aaronic Priesthood by the laying on of hands."
+		}
+	},
+	{
+		"id": "church-baptism-confirmation",
+		"date": "2025-01-04",
+		"category": "church",
+		"title": {
+			"zh-tw": "受洗和證實",
+			"en": "Baptism and confirmation"
+		},
+		"note": {
+			"zh-tw": "完成洗禮和證實，按手領受聖靈的恩賜，正式成為教會成員。",
+			"en": "Baptized and confirmed by the laying on of hands for the gift of the Holy Ghost."
+		}
+	}
+]

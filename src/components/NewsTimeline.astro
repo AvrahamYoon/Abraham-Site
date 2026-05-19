@@ -1,9 +1,15 @@
 ---
-import { getNewsEntriesSorted, newsCategoryLabels } from '@/data/news';
+import {
+	getNewsCategoriesInUse,
+	getNewsEntriesSorted,
+	newsCategoryLabels,
+	type NewsCategoryId,
+} from '@/data/news';
 import { getLocale, type Locale } from '@/lib/locale';
 
 const locale = getLocale(Astro.currentLocale);
 const entries = getNewsEntriesSorted();
+const categoriesInUse = getNewsCategoriesInUse();
 
 function formatNewsDate(date: string, loc: Locale): string {
 	const normalized = date.length === 7 ? `${date}-01` : date;
@@ -18,29 +24,143 @@ function formatNewsDate(date: string, loc: Locale): string {
 	return parsed.toLocaleDateString(loc === 'zh-tw' ? 'zh-Hant' : 'en-US', options);
 }
 
-const emptyCopy: Record<Locale, string> = {
-	'zh-tw': '尚無動態，之後的里程碑會記在這裡。',
-	en: 'No updates yet — milestones will appear here.',
-};
+const copy = {
+	'zh-tw': {
+		timelineLabel: '動態時間線',
+		filterLabel: '依類型篩選',
+		all: '全部',
+		emptyAll: '尚無動態，之後的里程碑會記在這裡。',
+		emptyFilter: '此類型暫無動態。',
+	},
+	en: {
+		timelineLabel: 'News timeline',
+		filterLabel: 'Filter by type',
+		all: 'All',
+		emptyAll: 'No updates yet — milestones will appear here.',
+		emptyFilter: 'No updates in this category yet.',
+	},
+}[locale];
 ---
 
-{
-	entries.length === 0 ? (
-		<p class="text-sm leading-relaxed text-slate-600">{emptyCopy[locale]}</p>
-	) : (
-		<ol class="news-timeline" aria-label={locale === 'zh-tw' ? '動態時間線' : 'News timeline'}>
-			{entries.map((entry) => (
-				<li class="news-timeline-item">
-					<div class="news-timeline-meta">
-						<time class="news-timeline-date" datetime={entry.date}>
-							{formatNewsDate(entry.date, locale)}
-						</time>
-						<span class="news-timeline-tag">{newsCategoryLabels[entry.category][locale]}</span>
-					</div>
-					<h2 class="news-timeline-title">{entry.title[locale]}</h2>
-					{entry.note ? <p class="news-timeline-note">{entry.note[locale]}</p> : null}
-				</li>
-			))}
-		</ol>
-	)
-}
+<div class="news-timeline-root" data-news-timeline>
+	{
+		entries.length > 0 && categoriesInUse.length > 1 && (
+			<div
+				class="news-filter"
+				role="group"
+				aria-label={copy.filterLabel}
+			>
+				<div class="news-filter-categories">
+					{
+						categoriesInUse.map((category: NewsCategoryId, index) => (
+							<button
+								type="button"
+								class:list={[
+									'news-filter-pill tap-target',
+									index === 0 && 'news-filter-pill-active',
+								]}
+								data-news-filter={category}
+								aria-pressed={index === 0 ? 'true' : 'false'}
+							>
+								{newsCategoryLabels[category][locale]}
+							</button>
+						))
+					}
+				</div>
+				<button
+					type="button"
+					class="news-filter-pill news-filter-pill-all tap-target"
+					data-news-filter="all"
+					aria-pressed="false"
+				>
+					{copy.all}
+				</button>
+			</div>
+		)
+	}
+
+	{
+		entries.length === 0 ? (
+			<p class="news-timeline-empty text-sm leading-relaxed text-slate-600" data-news-empty-all>
+				{copy.emptyAll}
+			</p>
+		) : (
+			<>
+				<p
+					class="news-timeline-empty text-sm leading-relaxed text-slate-600"
+					data-news-empty-filter
+					hidden
+				>
+					{copy.emptyFilter}
+				</p>
+				<ol class="news-timeline" aria-label={copy.timelineLabel}>
+					{entries.map((entry) => (
+						<li class="news-timeline-item" data-news-category={entry.category}>
+							<div class="news-timeline-meta">
+								<time class="news-timeline-date" datetime={entry.date}>
+									{formatNewsDate(entry.date, locale)}
+								</time>
+								<span class="news-timeline-tag">{newsCategoryLabels[entry.category][locale]}</span>
+							</div>
+							<h2 class="news-timeline-title">{entry.title[locale]}</h2>
+							<p class="news-timeline-note">{entry.note[locale]}</p>
+						</li>
+					))}
+				</ol>
+			</>
+		)
+	}
+</div>
+
+<script>
+	function initNewsTimelineFilter() {
+		const root = document.querySelector('[data-news-timeline]');
+		if (!root) return;
+
+		const items = root.querySelectorAll<HTMLElement>('[data-news-category]');
+		const buttons = root.querySelectorAll<HTMLButtonElement>('[data-news-filter]');
+		const emptyFilter = root.querySelector<HTMLElement>('[data-news-empty-filter]');
+		const timeline = root.querySelector<HTMLElement>('.news-timeline');
+
+		if (!items.length || !buttons.length) return;
+
+		const activeClass = 'news-filter-pill-active';
+
+		function applyFilter(category: string) {
+			let visible = 0;
+			items.forEach((item) => {
+				const show = category === 'all' || item.dataset.newsCategory === category;
+				item.hidden = !show;
+				if (show) visible += 1;
+			});
+
+			if (emptyFilter) {
+				emptyFilter.hidden = visible > 0;
+				emptyFilter.classList.toggle('hidden', visible > 0);
+			}
+			if (timeline) {
+				timeline.hidden = visible === 0;
+			}
+
+			buttons.forEach((button) => {
+				const isActive = button.dataset.newsFilter === category;
+				button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+				button.classList.toggle(activeClass, isActive);
+			});
+		}
+
+		buttons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const category = button.dataset.newsFilter;
+				if (category) applyFilter(category);
+			});
+		});
+
+		const defaultFilter =
+			root.querySelector<HTMLButtonElement>('.news-filter-pill-active')?.dataset.newsFilter ?? 'all';
+		applyFilter(defaultFilter);
+	}
+
+	initNewsTimelineFilter();
+	document.addEventListener('astro:page-load', initNewsTimelineFilter);
+</script>

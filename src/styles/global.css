@@ -114,7 +114,31 @@
 	}
 
 	.news-page-intro {
-		@apply mb-8 text-sm leading-relaxed text-slate-600;
+		@apply mb-6 text-sm leading-relaxed text-slate-600;
+	}
+
+	.news-filter {
+		@apply mb-6 flex flex-wrap items-center justify-between gap-3;
+	}
+
+	.news-filter-categories {
+		@apply flex min-w-0 flex-1 flex-wrap gap-2;
+	}
+
+	.news-filter-pill-all {
+		@apply ml-auto shrink-0;
+	}
+
+	.news-filter-pill {
+		@apply shrink-0 rounded-full border border-line/80 bg-elevated px-4 py-2.5 text-sm font-medium text-ink-muted shadow-sm transition active:scale-[0.98];
+	}
+
+	.news-filter-pill-active {
+		@apply border-accent/30 bg-accent text-white shadow-sm shadow-accent-glow;
+	}
+
+	.news-timeline-empty {
+		@apply mb-4;
 	}
 
 	.news-page-intro code {
