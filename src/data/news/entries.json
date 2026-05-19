@@ -1,28 +1,15 @@
 [
 	{
-		"id": "site-launch",
-		"date": "2026-05",
-		"category": "site",
+		"id": "ham-operator-cert",
+		"date": "2025-03-11",
+		"category": "radio",
 		"title": {
-			"zh-tw": "個人站上線",
-			"en": "Personal site launched"
+			"zh-tw": "取得無線電臺操作證",
+			"en": "Amateur radio operator certificate"
 		},
 		"note": {
-			"zh-tw": "雙語個人站首次部署至 Vercel。",
-			"en": "Bilingual personal site first deployed to Vercel."
-		}
-	},
-	{
-		"id": "church-general-conference",
-		"date": "2026-04-05",
-		"category": "church",
-		"title": {
-			"zh-tw": "現場參加總會大會",
-			"en": "Attended general conference"
-		},
-		"note": {
-			"zh-tw": "於猶他州鹽湖城現場參加四月總會大會。",
-			"en": "Attended April general conference in Salt Lake City, Utah, in person."
+			"zh-tw": "大陸地區操作證核發。",
+			"en": "Mainland China operator certificate issued."
 		}
 	},
 	{
@@ -39,29 +26,29 @@
 		}
 	},
 	{
-		"id": "church-patriarchal-blessing",
-		"date": "2026-03-08",
+		"id": "church-baptism-confirmation",
+		"date": "2026-01-04",
 		"category": "church",
 		"title": {
-			"zh-tw": "領受教長祝福",
-			"en": "Received a patriarchal blessing"
+			"zh-tw": "受洗和證實",
+			"en": "Baptism and confirmation"
 		},
 		"note": {
-			"zh-tw": "由按立的教長按手領受教長祝福。",
-			"en": "Received a patriarchal blessing from an ordained patriarch by the laying on of hands."
+			"zh-tw": "完成洗禮和證實，按手領受聖靈的恩賜，正式成為教會成員。",
+			"en": "Baptized and confirmed by the laying on of hands for the gift of the Holy Ghost."
 		}
 	},
 	{
-		"id": "ham-operator-cert",
-		"date": "2025-03-11",
-		"category": "radio",
+		"id": "church-aaronic-priesthood",
+		"date": "2026-01-11",
+		"category": "church",
 		"title": {
-			"zh-tw": "取得無線電臺操作證",
-			"en": "Amateur radio operator certificate"
+			"zh-tw": "按立為祭司",
+			"en": "Ordained a priest"
 		},
 		"note": {
-			"zh-tw": "大陸地區操作證核發。",
-			"en": "Mainland China operator certificate issued."
+			"zh-tw": "由 Scott D. Martin 按手按立為亞倫聖職的祭司。",
+			"en": "Ordained a priest in the Aaronic Priesthood by Scott D. Martin by the laying on of hands."
 		}
 	},
 	{
@@ -86,34 +73,73 @@
 			"en": "Ordained an elder"
 		},
 		"note": {
-			"zh-tw": "按手按立為麥基洗德聖職的長老。",
-			"en": "Ordained an elder in the Melchizedek Priesthood by the laying on of hands."
+			"zh-tw": "由 Dallin P. Georgeson 按手按立為麥基洗德聖職的長老。",
+			"en": "Ordained an elder in the Melchizedek Priesthood by Dallin P. Georgeson by the laying on of hands."
 		}
 	},
 	{
-		"id": "church-aaronic-priesthood",
-		"date": "2026-01-11",
+		"id": "church-calling-temple-family-history",
+		"date": "2026-02-22",
 		"category": "church",
 		"title": {
-			"zh-tw": "按立為祭司",
-			"en": "Ordained a priest"
+			"zh-tw": "按立為聖殿和家譜顧問",
+			"en": "Set apart as temple and family history consultant"
 		},
 		"note": {
-			"zh-tw": "按手按立為亞倫聖職的祭司。",
-			"en": "Ordained a priest in the Aaronic Priesthood by the laying on of hands."
+			"zh-tw": "按手按立為聖殿和家譜顧問。",
+			"en": "Set apart as a temple and family history consultant by the laying on of hands."
 		}
 	},
 	{
-		"id": "church-baptism-confirmation",
-		"date": "2026-01-04",
+		"id": "church-patriarchal-blessing",
+		"date": "2026-03-08",
 		"category": "church",
 		"title": {
-			"zh-tw": "受洗和證實",
-			"en": "Baptism and confirmation"
+			"zh-tw": "領受教長祝福",
+			"en": "Received a patriarchal blessing"
 		},
 		"note": {
-			"zh-tw": "完成洗禮和證實，按手領受聖靈的恩賜，正式成為教會成員。",
-			"en": "Baptized and confirmed by the laying on of hands for the gift of the Holy Ghost."
+			"zh-tw": "由教長 Chris M. Allison 按手領受教長祝福。",
+			"en": "Received a patriarchal blessing from Patriarch Chris M. Allison by the laying on of hands."
+		}
+	},
+	{
+		"id": "church-general-conference",
+		"date": "2026-04-05",
+		"category": "church",
+		"title": {
+			"zh-tw": "現場參加總會大會",
+			"en": "Attended general conference"
+		},
+		"note": {
+			"zh-tw": "於猶他州鹽湖城現場參加四月總會大會。",
+			"en": "Attended April general conference in Salt Lake City, Utah, in person."
+		}
+	},
+	{
+		"id": "church-first-confirmation",
+		"date": "2026-04-19",
+		"category": "church",
+		"title": {
+			"zh-tw": "首次主持確認聖事",
+			"en": "Performed the ordinance of confirmation"
+		},
+		"note": {
+			"zh-tw": "為 Xinran Yu 執行確認聖事，按手賜予聖靈的恩賜。",
+			"en": "Performed the ordinance of confirmation for Xinran Yu by the laying on of hands, conferring the gift of the Holy Ghost."
+		}
+	},
+	{
+		"id": "site-launch",
+		"date": "2026-05",
+		"category": "site",
+		"title": {
+			"zh-tw": "個人站上線",
+			"en": "Personal site launched"
+		},
+		"note": {
+			"zh-tw": "雙語個人站首次部署至 Vercel。",
+			"en": "Bilingual personal site first deployed to Vercel."
 		}
 	}
 ]
