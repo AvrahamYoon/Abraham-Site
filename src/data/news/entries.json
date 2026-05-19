@@ -14,7 +14,7 @@
 	},
 	{
 		"id": "church-general-conference",
-		"date": "2025-04-05",
+		"date": "2026-04-05",
 		"category": "church",
 		"title": {
 			"zh-tw": "現場參加總會大會",
@@ -40,7 +40,7 @@
 	},
 	{
 		"id": "church-patriarchal-blessing",
-		"date": "2025-03-08",
+		"date": "2026-03-08",
 		"category": "church",
 		"title": {
 			"zh-tw": "領受教長祝福",
@@ -65,8 +65,21 @@
 		}
 	},
 	{
+		"id": "church-rexburg-ysa-stake-conference",
+		"date": "2026-02-15",
+		"category": "church",
+		"title": {
+			"zh-tw": "支聯會大會演講",
+			"en": "Spoke at stake conference"
+		},
+		"note": {
+			"zh-tw": "於 Rexburg 第七 YSA 支聯會大會作專題演講，並與總會七十員 Ozani Farias 長老交流。",
+			"en": "Gave a talk at the Rexburg 7th YSA stake conference and met with Elder Ozani Farias of the Seventy."
+		}
+	},
+	{
 		"id": "church-melchizedek-priesthood",
-		"date": "2025-02-22",
+		"date": "2026-02-22",
 		"category": "church",
 		"title": {
 			"zh-tw": "按立為長老",
@@ -79,7 +92,7 @@
 	},
 	{
 		"id": "church-aaronic-priesthood",
-		"date": "2025-01-11",
+		"date": "2026-01-11",
 		"category": "church",
 		"title": {
 			"zh-tw": "按立為祭司",
@@ -92,7 +105,7 @@
 	},
 	{
 		"id": "church-baptism-confirmation",
-		"date": "2025-01-04",
+		"date": "2026-01-04",
 		"category": "church",
 		"title": {
 			"zh-tw": "受洗和證實",
