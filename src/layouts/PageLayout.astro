@@ -24,7 +24,7 @@ const { title, activeNav, description } = Astro.props;
 	>
 		<div class="grid flex-1 gap-6 lg:grid-cols-[minmax(0,17rem)_1fr] lg:items-start lg:gap-10">
 			<aside class="hidden space-y-4 lg:sticky lg:top-8 lg:block">
-				<div transition:persist="profile-card">
+				<div transition:persist={`profile-card-${locale}`}>
 					<ProfileCard variant="sidebar" />
 				</div>
 				<SidebarNav activeId={activeNav} />
@@ -32,7 +32,9 @@ const { title, activeNav, description } = Astro.props;
 
 			<div class="flex min-w-0 flex-col gap-4 sm:gap-6">
 				<header class="shrink-0 space-y-3" transition:animate="none">
-					<h1 class="page-title">{title}</h1>
+					<h1 class="page-title" transition:name={`page-title-${locale}-${activeNav}`}>
+						{title}
+					</h1>
 					<MobileNav activeId={activeNav} />
 				</header>
 
