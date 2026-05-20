@@ -17,7 +17,7 @@ const labels = {
 const copy = labels[locale];
 ---
 
-<nav class="panel p-4" aria-label={copy.nav}>
+<nav class="panel panel-muted p-4" aria-label={copy.nav}>
 	<p class="mb-3 px-2 text-xs font-semibold tracking-wider text-ink-muted uppercase">
 		{copy.nav}
 	</p>
@@ -41,7 +41,7 @@ const copy = labels[locale];
 	</ul>
 	<a
 		href={getRelativeLocaleUrl(locale, '/')}
-		class="tap-target mt-4 flex items-center justify-center rounded-xl border border-line bg-surface px-4 py-2.5 text-center text-sm font-medium text-ink-muted transition hover:border-indigo-200 hover:text-accent active:scale-[0.99]"
+		class="tap-target mt-4 flex items-center justify-center rounded-xl border border-line bg-surface px-4 py-2.5 text-center text-sm font-medium text-ink-muted transition hover:border-accent/30 hover:bg-accent-soft hover:text-accent active:scale-[0.99]"
 	>
 		{copy.home}
 	</a>

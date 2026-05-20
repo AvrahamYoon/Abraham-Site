@@ -16,6 +16,7 @@ const isSidebar = variant === 'sidebar';
 <div
 	class:list={[
 		'panel relative overflow-hidden',
+		isSidebar && 'panel-muted',
 		isSidebar ? 'p-4' : 'p-6 sm:p-8',
 	]}
 >

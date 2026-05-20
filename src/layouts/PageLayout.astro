@@ -30,7 +30,7 @@ const { title, activeNav, description } = Astro.props;
 				<SidebarNav activeId={activeNav} />
 			</aside>
 
-			<div class="flex min-w-0 flex-col gap-4 sm:gap-6">
+			<div class="flex min-w-0 flex-col gap-5 sm:gap-8">
 				<header class="shrink-0 space-y-3" transition:animate="none">
 					<h1 class="page-title" transition:name={`page-title-${locale}-${activeNav}`}>
 						{title}
@@ -39,7 +39,7 @@ const { title, activeNav, description } = Astro.props;
 				</header>
 
 				<main
-					class="panel min-h-0 flex-1 p-5 sm:p-8 lg:min-h-[32rem] lg:p-10"
+					class="panel panel-main page-fade min-h-0 flex-1 p-5 sm:p-8 lg:p-10"
 					transition:animate="none"
 				>
 					<slot />
