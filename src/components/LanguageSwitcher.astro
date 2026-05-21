@@ -9,11 +9,7 @@ const localeLabels: Record<Locale, string> = {
 };
 ---
 
-<div
-	class="top-nav-shell text-xs font-semibold shadow-lg"
-	role="group"
-	aria-label="Language"
->
+<div class="inline-flex gap-1" role="group" aria-label="Language">
 	{
 		locales.map((locale) => {
 			const isActive = locale === current;
@@ -23,7 +19,7 @@ const localeLabels: Record<Locale, string> = {
 			) : (
 				<a
 					href={href}
-					class="top-nav-link tap-target rounded-xl px-3 py-2 hover:bg-slate-100 active:scale-95"
+					class="top-nav-link tap-target rounded-xl px-3 py-2 hover:bg-accent-soft active:scale-95"
 					hreflang={locale}
 				>
 					{localeLabels[locale]}

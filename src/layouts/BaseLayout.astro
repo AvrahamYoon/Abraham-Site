@@ -33,6 +33,19 @@ const htmlLang = locale === 'en' ? 'en' : 'zh-Hant';
 <!doctype html>
 <html lang={htmlLang}>
 	<head>
+		<script is:inline>
+			(function () {
+				try {
+					var theme = localStorage.getItem('theme');
+					if (theme === 'dark' || theme === 'light') {
+						document.documentElement.dataset.theme = theme;
+						document.documentElement.style.colorScheme = theme;
+					}
+				} catch (e) {
+					/* ignore */
+				}
+			})();
+		</script>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
@@ -41,6 +54,7 @@ const htmlLang = locale === 'en' ? 'en' : 'zh-Hant';
 		<meta name="description" content={pageDescription} />
 		<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
 		<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f8fafc" />
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 		{
 			locales.map((locale) => (

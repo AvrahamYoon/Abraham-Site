@@ -1,9 +1,12 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <div class="floating-actions-bar">
-	<div class="pointer-events-auto">
+	<div class="top-nav-shell top-nav-actions text-xs font-semibold">
+		<ThemeToggle />
+		<span class="top-nav-divider" aria-hidden="true"></span>
 		<LanguageSwitcher />
 	</div>
 </div>
