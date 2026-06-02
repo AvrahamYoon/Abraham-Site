@@ -76,8 +76,8 @@ html[data-theme='dark'] {
 }
 
 @theme inline {
-	--font-sans: var(--font-wenkai), ui-sans-serif, system-ui, sans-serif;
-	--font-mono: var(--font-sans-code), ui-monospace, monospace;
+	--font-sans: 'LXGW WenKai TC', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'Google Sans Code', ui-monospace, monospace;
 	--color-surface: var(--surface);
 	--color-surface-2: var(--surface-2);
 	--color-elevated: var(--elevated);

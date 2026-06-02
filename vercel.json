@@ -19,5 +19,25 @@
 			"destination": "/zh-tw/:path*",
 			"permanent": true
 		}
+	],
+	"headers": [
+		{
+			"source": "/_astro/(.*)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
+		},
+		{
+			"source": "/favicon.(ico|svg)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=86400"
+				}
+			]
+		}
 	]
 }

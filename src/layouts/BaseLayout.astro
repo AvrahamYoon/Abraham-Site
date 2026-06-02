@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import FloatingActions from '@/components/FloatingActions.astro';
 import { getSiteMeta } from '@/data/site';
@@ -67,8 +66,12 @@ const htmlLang = locale === 'en' ? 'en' : 'zh-Hant';
 		}
 		<link rel="alternate" hreflang="x-default" href={new URL(localizedPath('zh-tw'), Astro.site)} />
 		<title>{pageTitle}</title>
-		<Font cssVariable="--font-wenkai" preload />
-		<Font cssVariable="--font-sans-code" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600&family=LXGW+WenKai+TC:wght@400;700&display=swap"
+		/>
 		<ClientRouter />
 		<script>
 			function restartPageFade() {
