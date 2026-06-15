@@ -46,5 +46,29 @@
 			"zh-tw": "網站",
 			"en": "Website"
 		}
+	},
+	{
+		"id": "vaccine-record-manager",
+		"order": 3,
+		"title": {
+			"zh-tw": "疫苗紀錄管理",
+			"en": "Vaccine Record Manager"
+		},
+		"summary": {
+			"zh-tw": "本地疫苗接種紀錄管理工具，含互動儀表板、紀錄編輯與篩選、劑次追蹤、時間線報告與加強劑提醒。",
+			"en": "Local vaccination record manager with an interactive dashboard, record editing, filtering, dose tracking, timeline reports, and booster reminders."
+		},
+		"tags": ["Python", "Streamlit"],
+		"image": "/works/Vaccine-Record-Manager.jpg",
+		"imageAlt": {
+			"zh-tw": "疫苗紀錄管理儀表板預覽",
+			"en": "Vaccine Record Manager dashboard preview"
+		},
+		"github": "https://github.com/AvrahamYoon/Vaccine-Record-Manager",
+		"demo": "https://vaccine-record-manager.streamlit.app/",
+		"demoLabel": {
+			"zh-tw": "線上體驗",
+			"en": "Live demo"
+		}
 	}
 ]
