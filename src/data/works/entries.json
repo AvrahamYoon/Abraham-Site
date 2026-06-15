@@ -3,7 +3,7 @@
 		"id": "prof-preview",
 		"order": 1,
 		"title": {
-			"zh-tw": "Prof Preview",
+			"zh-tw": "教授評分預覽",
 			"en": "Prof Preview"
 		},
 		"summary": {
@@ -13,7 +13,7 @@
 		"tags": ["Chrome MV3", "200+ users"],
 		"image": "/works/prof-preview.jpg",
 		"imageAlt": {
-			"zh-tw": "Prof Preview 擴充功能預覽",
+			"zh-tw": "教授評分預覽擴充功能預覽",
 			"en": "Prof Preview extension preview"
 		},
 		"github": "https://github.com/AvrahamYoon/Professor-Rating-Before-Register",
@@ -27,7 +27,7 @@
 		"id": "lds-chinese-directory",
 		"order": 2,
 		"title": {
-			"zh-tw": "LDS Chinese Directory",
+			"zh-tw": "華語教會單位名錄",
 			"en": "LDS Chinese Directory"
 		},
 		"summary": {
@@ -37,7 +37,7 @@
 		"tags": ["Next.js", "TypeScript", "Leaflet"],
 		"image": "/works/LDS-Chinese-Directory.jpg",
 		"imageAlt": {
-			"zh-tw": "LDS Chinese Directory 地圖預覽",
+			"zh-tw": "華語教會單位名錄地圖預覽",
 			"en": "LDS Chinese Directory map preview"
 		},
 		"github": "https://github.com/AvrahamYoon/LDS-Chinese-Directory",
@@ -70,5 +70,24 @@
 			"zh-tw": "線上體驗",
 			"en": "Live demo"
 		}
+	},
+	{
+		"id": "equipment-lifecycle-analytics",
+		"order": 4,
+		"title": {
+			"zh-tw": "設備生命週期分析",
+			"en": "Equipment Lifecycle Analytics"
+		},
+		"summary": {
+			"zh-tw": "工單與設備維修分析儀表板，整合 Compuclean 匯出資料清洗、替換建議與工單總覽。",
+			"en": "Work-order and equipment repair analytics dashboard with Compuclean export normalization, replacement recommendations, and order overview."
+		},
+		"tags": ["Python", "Dash", "pandas"],
+		"image": "/works/Equipment-Lifecycle-Analytics.jpg",
+		"imageAlt": {
+			"zh-tw": "設備生命週期分析儀表板預覽",
+			"en": "Equipment Lifecycle Analytics dashboard preview"
+		},
+		"github": "https://github.com/AvrahamYoon/Equipment-Lifecycle-Analytics"
 	}
 ]
