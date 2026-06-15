@@ -367,6 +367,83 @@ html[data-theme='dark'] {
 	.news-timeline-note {
 		@apply mt-2 text-sm leading-relaxed text-ink-muted;
 	}
+
+	.works-page-intro {
+		@apply mb-6 text-sm leading-relaxed text-ink-muted;
+	}
+
+	.works-page-intro code {
+		@apply rounded-md bg-surface-2 px-1.5 py-0.5 font-mono text-xs text-accent;
+	}
+
+	.works-grid {
+		@apply m-0 grid list-none gap-4 p-0 sm:grid-cols-2 sm:gap-5;
+	}
+
+	.work-card {
+		@apply flex h-full flex-col overflow-hidden rounded-2xl border border-line/80 bg-elevated transition duration-200 hover:border-accent/25 motion-reduce:transition-none;
+		box-shadow: var(--panel-shadow-muted), inset 0 1px 0 var(--panel-inset);
+	}
+
+	.work-card-media {
+		@apply relative aspect-[16/10] overflow-hidden border-b border-line/60 bg-surface-2;
+	}
+
+	.work-card-image {
+		@apply h-full w-full object-cover;
+	}
+
+	.work-card-placeholder {
+		@apply flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-soft via-elevated to-surface-2;
+	}
+
+	.work-card-placeholder-letter {
+		@apply text-4xl font-bold tracking-tight text-accent/70;
+	}
+
+	.work-card-body {
+		@apply flex flex-1 flex-col gap-3 p-4 sm:p-5;
+	}
+
+	.work-card-title {
+		@apply text-lg font-semibold tracking-tight text-ink;
+	}
+
+	.work-card-summary {
+		@apply text-sm leading-relaxed text-ink-muted;
+	}
+
+	.work-card-tags {
+		@apply m-0 flex list-none flex-wrap gap-2 p-0;
+	}
+
+	.work-card-tag {
+		@apply rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent;
+	}
+
+	.work-card-links {
+		@apply mt-auto flex flex-wrap gap-2 pt-1;
+	}
+
+	.work-card-link {
+		@apply inline-flex min-h-11 items-center gap-2 rounded-xl border border-line/80 bg-surface px-3.5 py-2.5 text-sm font-medium text-ink-muted transition hover:border-accent/30 hover:bg-accent-soft hover:text-accent active:scale-[0.98];
+	}
+
+	.work-card-link-icon {
+		@apply h-4 w-4 shrink-0;
+	}
+
+	.works-pagination {
+		@apply mt-5 flex items-center justify-between gap-3 border-t border-line/70 pt-5;
+	}
+
+	.works-pagination-btn {
+		@apply inline-flex min-h-11 items-center rounded-xl border border-line/80 bg-elevated px-4 py-2.5 text-sm font-medium text-ink-muted shadow-sm transition hover:border-accent/30 hover:bg-accent-soft hover:text-accent active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line/80 disabled:hover:bg-elevated disabled:hover:text-ink-muted;
+	}
+
+	.works-pagination-status {
+		@apply m-0 text-sm font-medium text-ink-muted tabular-nums;
+	}
 }
 
 @layer utilities {

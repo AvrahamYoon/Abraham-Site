@@ -1,0 +1,222 @@
+---
+import { getWorksEntries, getWorksPageCount, WORKS_PAGE_SIZE } from '@/data/works';
+import { getLocale } from '@/lib/locale';
+
+const locale = getLocale(Astro.currentLocale);
+const entries = getWorksEntries();
+const pageCount = getWorksPageCount();
+
+const copy = {
+	'zh-tw': {
+		github: 'GitHub',
+		demo: '線上體驗',
+		empty: '尚無作品，之後會補上。',
+		paginationLabel: '作品分頁',
+		prev: '上一頁',
+		next: '下一頁',
+		pageStatus: (current: number, total: number) => `第 ${current} / ${total} 頁`,
+	},
+	en: {
+		github: 'GitHub',
+		demo: 'Live demo',
+		empty: 'No works listed yet.',
+		paginationLabel: 'Works pages',
+		prev: 'Previous',
+		next: 'Next',
+		pageStatus: (current: number, total: number) => `Page ${current} of ${total}`,
+	},
+}[locale];
+
+const linkIcons = {
+	github:
+		'M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.8c.85.004 1.71.115 2.51.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z',
+	demo: 'M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V7h7V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7z',
+};
+---
+
+<div class="works-grid-root" data-works-grid data-page-size={WORKS_PAGE_SIZE} data-locale={locale}>
+	{
+		entries.length === 0 ? (
+			<p class="works-empty text-sm leading-relaxed text-ink-muted">{copy.empty}</p>
+		) : (
+			<>
+				<ul class="works-grid" role="list">
+					{entries.map((entry, index) => {
+						const page = Math.floor(index / WORKS_PAGE_SIZE) + 1;
+						const demoLabel = entry.demoLabel?.[locale] ?? copy.demo;
+						const hasLinks = Boolean(entry.github || entry.demo);
+
+						return (
+							<li class="work-card" data-work-page={page} hidden={page > 1}>
+								<div class="work-card-media">
+									{
+										entry.image ? (
+											<img
+												class="work-card-image"
+												src={entry.image}
+												alt={entry.imageAlt?.[locale] ?? entry.title[locale]}
+												loading="lazy"
+												decoding="async"
+											/>
+										) : (
+											<div class="work-card-placeholder" aria-hidden="true">
+												<span class="work-card-placeholder-letter">
+													{entry.title[locale].charAt(0)}
+												</span>
+											</div>
+										)
+									}
+								</div>
+
+								<div class="work-card-body">
+									<h2 class="work-card-title">{entry.title[locale]}</h2>
+									<p class="work-card-summary">{entry.summary[locale]}</p>
+
+									{
+										entry.tags && entry.tags.length > 0 && (
+											<ul class="work-card-tags" aria-label="Tags">
+												{entry.tags.map((tag) => (
+													<li class="work-card-tag">{tag}</li>
+												))}
+											</ul>
+										)
+									}
+
+									{
+										hasLinks && (
+											<div class="work-card-links">
+												{
+													entry.github && (
+														<a
+															class="work-card-link tap-target"
+															href={entry.github}
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															<svg
+																class="work-card-link-icon"
+																viewBox="0 0 24 24"
+																fill="currentColor"
+																aria-hidden="true"
+															>
+																<path d={linkIcons.github} />
+															</svg>
+															{copy.github}
+														</a>
+													)
+												}
+												{
+													entry.demo && (
+														<a
+															class="work-card-link tap-target"
+															href={entry.demo}
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															<svg
+																class="work-card-link-icon"
+																viewBox="0 0 24 24"
+																fill="currentColor"
+																aria-hidden="true"
+															>
+																<path d={linkIcons.demo} />
+															</svg>
+															{demoLabel}
+														</a>
+													)
+												}
+											</div>
+										)
+									}
+								</div>
+							</li>
+						);
+					})}
+				</ul>
+
+				{
+					pageCount > 1 && (
+						<nav
+							class="works-pagination"
+							aria-label={copy.paginationLabel}
+							data-works-pagination
+						>
+							<button
+								type="button"
+								class="works-pagination-btn tap-target"
+								data-works-page-prev
+								disabled
+							>
+								{copy.prev}
+							</button>
+							<p class="works-pagination-status" data-works-page-status>
+								{copy.pageStatus(1, pageCount)}
+							</p>
+							<button
+								type="button"
+								class="works-pagination-btn tap-target"
+								data-works-page-next
+								disabled={pageCount <= 1}
+							>
+								{copy.next}
+							</button>
+						</nav>
+					)
+				}
+			</>
+		)
+	}
+</div>
+
+<script define:vars={{ pageCount }}>
+	function initWorksPagination() {
+		const root = document.querySelector('[data-works-grid]');
+		if (!root) return;
+
+		const cards = root.querySelectorAll('[data-work-page]');
+		const pagination = root.querySelector('[data-works-pagination]');
+		if (!cards.length || !pagination) return;
+
+		const prevBtn = pagination.querySelector('[data-works-page-prev]');
+		const nextBtn = pagination.querySelector('[data-works-page-next]');
+		const status = pagination.querySelector('[data-works-page-status]');
+		const locale = root.dataset.locale ?? 'en';
+		const totalPages = pageCount;
+		let currentPage = 1;
+
+		function pageStatus(page, total) {
+			return locale === 'zh-tw' ? `第 ${page} / ${total} 頁` : `Page ${page} of ${total}`;
+		}
+
+		function renderPage(page) {
+			currentPage = page;
+			cards.forEach((card) => {
+				const cardPage = Number(card.dataset.workPage);
+				card.hidden = cardPage !== page;
+			});
+
+			if (prevBtn instanceof HTMLButtonElement) {
+				prevBtn.disabled = page <= 1;
+			}
+			if (nextBtn instanceof HTMLButtonElement) {
+				nextBtn.disabled = page >= totalPages;
+			}
+			if (status) {
+				status.textContent = pageStatus(page, totalPages);
+			}
+		}
+
+		prevBtn?.addEventListener('click', () => {
+			if (currentPage > 1) renderPage(currentPage - 1);
+		});
+
+		nextBtn?.addEventListener('click', () => {
+			if (currentPage < totalPages) renderPage(currentPage + 1);
+		});
+
+		renderPage(1);
+	}
+
+	initWorksPagination();
+	document.addEventListener('astro:page-load', initWorksPagination);
+</script>

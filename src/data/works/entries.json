@@ -1,0 +1,50 @@
+[
+	{
+		"id": "prof-preview",
+		"order": 1,
+		"title": {
+			"zh-tw": "Prof Preview",
+			"en": "Prof Preview"
+		},
+		"summary": {
+			"zh-tw": "Chrome MV3 擴充功能，在選課頁面直接顯示 RateMyProfessors 評分；獲校報報導，200+ 活躍使用者。",
+			"en": "Chrome MV3 extension that surfaces RateMyProfessors ratings on course registration — featured in the campus newspaper, 200+ active users."
+		},
+		"tags": ["Chrome MV3", "200+ users"],
+		"image": "/works/prof-preview.jpg",
+		"imageAlt": {
+			"zh-tw": "Prof Preview 擴充功能預覽",
+			"en": "Prof Preview extension preview"
+		},
+		"github": "https://github.com/AvrahamYoon/Professor-Rating-Before-Register",
+		"demo": "https://chromewebstore.google.com/detail/jpmeejkifedfgcoohmefofjacbgpeebh",
+		"demoLabel": {
+			"zh-tw": "Chrome 商店",
+			"en": "Chrome Web Store"
+		}
+	},
+	{
+		"id": "lds-chinese-directory",
+		"order": 2,
+		"title": {
+			"zh-tw": "LDS Chinese Directory",
+			"en": "LDS Chinese Directory"
+		},
+		"summary": {
+			"zh-tw": "以地圖呈現全球華語、粵語等亞裔青年單位名錄，支援中英雙語、搜尋與篩選。",
+			"en": "Map-based directory of Mandarin, Cantonese, and related Asian YSA Latter-day Saint units worldwide — bilingual UI, search, and filters."
+		},
+		"tags": ["Next.js", "TypeScript", "Leaflet"],
+		"image": "/works/LDS-Chinese-Directory.jpg",
+		"imageAlt": {
+			"zh-tw": "LDS Chinese Directory 地圖預覽",
+			"en": "LDS Chinese Directory map preview"
+		},
+		"github": "https://github.com/AvrahamYoon/LDS-Chinese-Directory",
+		"demo": "https://lds-chinese.dnit.us/",
+		"demoLabel": {
+			"zh-tw": "網站",
+			"en": "Website"
+		}
+	}
+]

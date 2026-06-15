@@ -63,6 +63,8 @@ public/                 # avatar, favicon, static assets
 | Name, email, social links | `src/data/site.ts` |
 | Navigation items | `src/data/nav.ts` |
 | Page copy | `src/pages/zh-tw/*.md`, `src/pages/en/*.md` |
+| News timeline | `src/data/news/entries.json` |
+| Works / portfolio cards | `src/data/works/entries.json` |
 | Production URL (sitemap, canonical) | `astro.config.mjs` → `site` |
 
 ## Deploy on Vercel
