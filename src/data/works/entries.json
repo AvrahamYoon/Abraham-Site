@@ -59,7 +59,7 @@
 			"en": "Local vaccination record manager with an interactive dashboard, record editing, filtering, dose tracking, timeline reports, and booster reminders."
 		},
 		"tags": ["Python", "Streamlit"],
-		"image": "/works/Vaccine-Record-Manager.jpg",
+		"image": "/works/vaccine-record-manager.jpg",
 		"imageAlt": {
 			"zh-tw": "疫苗紀錄管理儀表板預覽",
 			"en": "Vaccine Record Manager dashboard preview"
