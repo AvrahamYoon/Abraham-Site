@@ -368,14 +368,6 @@ html[data-theme='dark'] {
 		@apply mt-2 text-sm leading-relaxed text-ink-muted;
 	}
 
-	.works-page-intro {
-		@apply mb-6 text-sm leading-relaxed text-ink-muted;
-	}
-
-	.works-page-intro code {
-		@apply rounded-md bg-surface-2 px-1.5 py-0.5 font-mono text-xs text-accent;
-	}
-
 	.works-grid {
 		@apply m-0 grid list-none gap-4 p-0 sm:grid-cols-2 sm:gap-5;
 	}
