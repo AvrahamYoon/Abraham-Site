@@ -130,16 +130,16 @@
 		}
 	},
 	{
-		"id": "church-calling-branch-missionary",
+		"id": "church-calling-ward-missionary",
 		"date": "2026-05-31",
 		"category": "church",
 		"title": {
 			"zh-tw": "按立為支會傳教士",
-			"en": "Set apart as branch missionary"
+			"en": "Set apart as ward missionary"
 		},
 		"note": {
 			"zh-tw": "由 Rick Lords 按手按立為支會傳教士。",
-			"en": "Set apart as a branch missionary by Rick Lords by the laying on of hands."
+			"en": "Set apart as a ward missionary by Rick Lords by the laying on of hands."
 		}
 	},
 	{
