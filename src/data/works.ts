@@ -20,6 +20,8 @@ export type WorkEntry = {
 export const workEntries = entriesJson as WorkEntry[];
 
 export const WORKS_PAGE_SIZE = 2;
+/** Hide pagination when entry count is small (mobile-friendly continuous scroll). */
+export const WORKS_PAGINATION_THRESHOLD = 6;
 
 export function getWorksEntries(): WorkEntry[] {
 	return [...workEntries].sort((a, b) => {

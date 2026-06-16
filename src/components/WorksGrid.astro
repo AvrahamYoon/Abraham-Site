@@ -1,10 +1,16 @@
 ---
-import { getWorksEntries, getWorksPageCount, WORKS_PAGE_SIZE } from '@/data/works';
+import {
+	getWorksEntries,
+	getWorksPageCount,
+	WORKS_PAGE_SIZE,
+	WORKS_PAGINATION_THRESHOLD,
+} from '@/data/works';
 import { getLocale } from '@/lib/locale';
 
 const locale = getLocale(Astro.currentLocale);
 const entries = getWorksEntries();
-const pageCount = getWorksPageCount();
+const shouldPaginate = entries.length > WORKS_PAGINATION_THRESHOLD;
+const pageCount = shouldPaginate ? getWorksPageCount() : 1;
 
 const copy = {
 	'zh-tw': {
@@ -42,12 +48,12 @@ const linkIcons = {
 			<>
 				<ul class="works-grid" role="list">
 					{entries.map((entry, index) => {
-						const page = Math.floor(index / WORKS_PAGE_SIZE) + 1;
+						const page = shouldPaginate ? Math.floor(index / WORKS_PAGE_SIZE) + 1 : 1;
 						const demoLabel = entry.demoLabel?.[locale] ?? copy.demo;
 						const hasLinks = Boolean(entry.github || entry.demo);
 
 						return (
-							<li class="work-card" data-work-page={page} hidden={page > 1}>
+							<li class="work-card" data-work-page={page} hidden={shouldPaginate && page > 1}>
 								<div class="work-card-media">
 									{
 										entry.image ? (
@@ -135,7 +141,7 @@ const linkIcons = {
 				</ul>
 
 				{
-					pageCount > 1 && (
+					shouldPaginate && pageCount > 1 && (
 						<nav
 							class="works-pagination"
 							aria-label={copy.paginationLabel}
