@@ -6,7 +6,7 @@
 	"redirects": [
 		{
 			"source": "/",
-			"destination": "/zh-tw/",
+			"destination": "/en/",
 			"permanent": false
 		},
 		{

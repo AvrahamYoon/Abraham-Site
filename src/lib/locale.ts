@@ -2,11 +2,11 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export const locales = ['zh-tw', 'en'] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = 'zh-tw';
+export const defaultLocale: Locale = 'en';
 
 export function getLocale(currentLocale: string | undefined): Locale {
-	if (currentLocale === 'en') return 'en';
-	return 'zh-tw';
+	if (currentLocale && isLocale(currentLocale)) return currentLocale;
+	return defaultLocale;
 }
 
 function isLocale(segment: string): segment is Locale {
